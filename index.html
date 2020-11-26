@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Worker Threads</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -16,8 +16,126 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>Worker threads</section>
+				<section data-markdown="slides/tl-dr.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section data-markdown="slides/intro.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section data-markdown="slides/the-beginning.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section data-markdown="slides/enter-node.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section data-markdown="slides/node-single-threaded.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section data-markdown="slides/event-loop.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section data-markdown="slides/what-about-cpu-intensive-tasks.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section data-markdown="slides/can-we-add-threads-to-javascript.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section data-markdown="slides/alternatives.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section data-markdown="slides/enter-worker-threads.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section data-markdown="slides/how-do-worker-threads-run-in-parallel.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section data-markdown="slides/bear-in-mind.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section data-markdown="slides/simple-example.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section data-markdown="slides/great-features.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section data-markdown="slides/worker-thread-pooling.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section data-markdown="slides/performance.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section>
+					<h2>Another example</h2>
+					<aside class="notes">
+						See files in `./code-examples` - code to generate prime numbers, one without worker threads and one with (with a basic thread pool implementation).
+						Run using `time` function (I installed `gnu-time` via brew) so:
+						```bash
+						gtime -p node code-examples/without-workers.js
+						```
+						and
+						```bash
+						gtime -p node code-examples/with-workers.js
+						```
+						to see the performance difference.
+						By default with-workers runs with 2 threads, try increasing this to see a performance increase.
+					</aside>
+				</section>
+				<section data-background-image="https://media.giphy.com/media/5IT69msgpaOcg/giphy.gif"></section>
+				<section data-markdown="slides/further-reading.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
 			</div>
 		</div>
 
