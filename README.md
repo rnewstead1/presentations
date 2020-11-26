@@ -1,11 +1,7 @@
-# Node.js Worker Threads Talk
+# Presentations
 
-Slides built using [reveal.js](https://revealjs.com/)
+Built using [reveal.js](https://revealjs.com/)
 
-Run via:
-
-```bash
-npm i && npm start
-```
+- https://rnewstead1.github.io/presentations/worker-threads
 
 To get speaker notes hit "s" from the browser window with the presentation.

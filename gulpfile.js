@@ -248,7 +248,7 @@ gulp.task('build', gulp.parallel('js', 'css', 'plugins'))
 gulp.task('package', gulp.series('default', () =>
 
     gulp.src([
-        './index.html',
+        './worker-threads.html',
         './dist/**',
         './lib/**',
         './images/**',
