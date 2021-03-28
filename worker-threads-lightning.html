@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Worker Threads</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-image="https://media.giphy.com/media/CKlafeh1NAxz35KTq4/giphy.gif">
+					<h1>Worker threads in Node.js</h1>
+					<aside class="notes">
+						This is adapted from a longer talk I gave at my previous company.
+						I've mainly skipped a whole lot of background and am focusing mainly on demos.
+						But there's a chance this means I've skipped some key stuff, so please interrupt and ask questions if something doesn't make sense!
+					</aside>
+				</section>
+				<section>
+					<img src="https://media.giphy.com/media/Nx85vtTY70T3W/giphy.gif"/>
+					<aside class="notes">
+						Note: Multithreaded Node.js is a misnomer really.
+						JS is single threaded.
+						This talk will be about some ways you can write JS to use multiple threads.
+						And a bit about why you might want to.
+						Focusing mainly on worker threads.
+						This is the new and recommended way to do it.
+						I went to a remote Node conference back in Nov and everyone was talking about worker threads.
+						Which I hadn't heard of at the time, so did some investigation.
+					</aside>
+				</section>
+				<section data-markdown="worker-threads/lightning/event-loop.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section data-markdown="worker-threads/lightning/options.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section data-markdown="worker-threads/lightning/enter-worker-threads.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section>
+					<h2>An example</h2>
+					<aside class="notes">
+						See files in `worker-threads/code-examples` - code to generate prime numbers, one without worker threads and one with (with a basic thread pool implementation).
+						Run using `time` function (I installed `gnu-time` via brew) so:
+						```bash
+						gtime -p node worker-threads/code-examples/without-workers.js
+						```
+						and
+						```bash
+						gtime -p node worker-threads/code-examples/with-workers.js
+						```
+						to see the performance difference.
+						By default with-workers runs with 2 threads, try increasing this to see a performance increase.
+					</aside>
+				</section>
+				<section data-markdown="worker-threads/lightning/caveats.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section data-markdown="worker-threads/lightning/real-life.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section>
+					<blockquote>Is Node.js the right language to use
+						if you're doing lots of CPU intensive work?</blockquote>
+					<aside class="notes">
+						I don't know if this is the case but it feels like a feature that's been added to try to keep people using Node.
+						To give it more feature parity with other languages.
+						But most of the time in your node applications, the bottlenecks are not down to the CPU, they are down to the overall architecture of networking and dbs.
+						I would love to hear if anyone has used this feature, or knows of it being used.
+					</aside>
+				</section>
+				<section data-background-image="https://media.giphy.com/media/5IT69msgpaOcg/giphy.gif"></section>
+				<section data-markdown="worker-threads/slides/further-reading.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
