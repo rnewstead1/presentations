@@ -35,7 +35,7 @@ So - we pass the filename as an argument and the data we want the Worker to proc
 There are two main ways of starting a worker:
 - `new Worker(filename)`
 - `new Worker(code, { eval: true })`
-\The latter will execute the code you pass it (probably don't do this in production...)
+The latter will execute the code you pass it (probably don't do this in production...)
 Remember - the data is cloned and not in any shared memory.
 Then we wait for the Worker thread to send us a message by listening to the `message` event.
 

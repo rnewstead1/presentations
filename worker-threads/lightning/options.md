@@ -4,7 +4,7 @@ Pre worker threads:
 - use a third-party module
 Note: The first two are slow and expensive.
 Forking a process uses a lot of CPU. Cluster uses that under the hood.
-There are 3rd party modules like Microsoft's Napa.js, but this is additional complexity
+There are 3rd party modules like Microsoft's Napa.js, but this is additional complexity.
 For JS running in the browser there is also the Web Workers API which is well supported by modern browsers.
 Can be useful for:
 - crypto

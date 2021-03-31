@@ -35,6 +35,7 @@
 						This is the new and recommended way to do it.
 						I went to a remote Node conference back in Nov and everyone was talking about worker threads.
 						Which I hadn't heard of at the time, so did some investigation.
+						I am by no means an expert, but I will share what I know!
 					</aside>
 				</section>
 				<section data-markdown="worker-threads/lightning/event-loop.md"
@@ -58,18 +59,11 @@
 				<section>
 					<h2>An example</h2>
 					<aside class="notes">
-						See files in `worker-threads/code-examples` - code to generate prime numbers, one without worker threads and one with (with a basic thread pool implementation).
-						Run using `time` function (I installed `gnu-time` via brew) so:
-						```bash
-						gtime -p node worker-threads/code-examples/without-workers.js
-						```
-						and
-						```bash
-						gtime -p node worker-threads/code-examples/with-workers.js
-						```
-						to see the performance difference.
-						By default with-workers runs with 2 threads, try increasing this to see a performance increase.
+						Code on https://github.com/rnewstead1/workers
 					</aside>
+				</section>
+				<section>
+					<img src="https://images.zenhubusercontent.com/570533156caf56c9d38f6ac7/217e1167-9f6e-4041-beb2-c6d4fd470c54"/>
 				</section>
 				<section data-markdown="worker-threads/lightning/caveats.md"
 						 data-separator="^\n\n\n"
@@ -87,10 +81,18 @@
 					<blockquote>Is Node.js the right language to use
 						if you're doing lots of CPU intensive work?</blockquote>
 					<aside class="notes">
-						I don't know if this is the case but it feels like a feature that's been added to try to keep people using Node.
+						Most of the cases where I have used Node it is for simple applications that don't need multithreading.
+						For example we use Node to build APIs that proxy graphql requests.
+						Get some data, transform it, make a request, transform the response, return it.
+						The thing that is likely to be slow there is the http layer.
+						Worker threads feel like a feature that's been added to try to keep people using Node.
 						To give it more feature parity with other languages.
-						But most of the time in your node applications, the bottlenecks are not down to the CPU, they are down to the overall architecture of networking and dbs.
+
+						Most of the time in your node applications, the bottlenecks are not down to the CPU, they are down to the overall architecture of networking and dbs.
 						I would love to hear if anyone has used this feature, or knows of it being used.
+
+						For me this was fun to learn about a new feature of a language.
+						But I can't see myself using it any time soon.
 					</aside>
 				</section>
 				<section data-background-image="https://media.giphy.com/media/5IT69msgpaOcg/giphy.gif"></section>

@@ -4,11 +4,13 @@ We can offload operations to the system kernel wherever possible via callbacks, 
 So we let the kernel can run I/O in parallel for us
 When it's time to send data back to our JS code, the JS part runs in a single thread.
 This is great if all we do is asynchronous I/O
-Our write small portions of synchronous code that run fast and pass data to files and streams.
+We write small portions of synchronous code that run fast and pass data to files and streams.
 Our code is so fast that it doesn't block the execution of other pieces of JS.
 We spend more time waiting for I/O events to happen than for JS code to be executed.
 
 
-JavaScript and Node.js were not meant to be designed for CPU bound tasks
-Note: Node is not designed for complex computation or synchronous requests
-BUT we can do it...
+JavaScript and Node.js were not designed for CPU bound tasks
+Note: Node is not designed for complex computation or synchronous requests.
+JS was initially only used for adding some basic interaction to web pages, e.g. form validation.
+so a single thread was fine.
+BUT we can now run JS in parallel if we want to.
